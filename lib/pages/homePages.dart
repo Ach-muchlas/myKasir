@@ -13,6 +13,12 @@ class HomePages extends StatefulWidget {
 class _HomePagesState extends State<HomePages> {
   @override
   Widget build(BuildContext context) {
+    //penjelasan dari item
+    const String pNasiPecel = 'nasi pecel khas Madiun \ndengan lauk ayam ';
+    const String pNasiRawon = 'nasi rawon khas Jawa \nTimur dengan lauk empal';
+    const String pNasiBali = 'nasi bali khas Bali \ndengan lauk telor';
+    const String pEsTeh = 'Minuman Khas Indonesia \nyang sudah melegenda';
+
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.white,
@@ -32,17 +38,25 @@ class _HomePagesState extends State<HomePages> {
         width: double.infinity,
         child: Column(
           children: [
-            // BarMenu(
-            //   imageData: AssetImage('assets/images/nasiPecel.jpg'),
-            // ),
-            // BarMenu(
-            //   imageData: AssetImage('assets/images/nasiRawon.jpg'),
-            // ),
-            // BarMenu(
-            //   imageData: AssetImage('assets/images/nasiBali.jpg'),
-            // ),
+            BarMenu(
+              imageData: AssetImage('assets/images/nasiPecel.jpg'),
+              namaItem: 'Nasi Pecel',
+              penjelasanItem: pNasiPecel,
+            ),
+            BarMenu(
+              imageData: AssetImage('assets/images/nasiRawon.jpg'),
+              namaItem: 'Nasi Rawon',
+              penjelasanItem: pNasiRawon,
+            ),
+            BarMenu(
+              imageData: AssetImage('assets/images/nasiBali.jpg'),
+              namaItem: 'Nasi Bali',
+              penjelasanItem: pNasiBali,
+            ),
             BarMenu(
               imageData: AssetImage('assets/images/esTeh.jpg'),
+              namaItem: 'Es Teh',
+              penjelasanItem: pEsTeh,
             )
           ],
         ),
