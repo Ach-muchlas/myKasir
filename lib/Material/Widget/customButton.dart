@@ -9,12 +9,19 @@ class CustomButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // ignore: avoid_unnecessary_containers
     return Container(
-      height: 338,
-      width: 69,
-      decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(17), color: MyColors.kuning),
-      child: ElevatedButton(onPressed: onTap, child: txtButton),
+      margin: const EdgeInsets.only(top: 50),
+      height: 69,
+      width: 320,
+      child: ElevatedButton(
+          style: ElevatedButton.styleFrom(
+              primary: MyColors.kuning,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(17),
+              )),
+          onPressed: onTap,
+          child: txtButton),
     );
   }
 }

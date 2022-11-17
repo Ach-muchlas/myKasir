@@ -8,11 +8,13 @@ class BarMenu extends StatelessWidget {
       {super.key,
       required this.imageData,
       required this.namaItem,
-      required this.penjelasanItem});
+      required this.penjelasanItem,
+      required this.harga});
 
   final AssetImage imageData;
   final String namaItem;
   final String penjelasanItem;
+  final String harga;
 
   @override
   Widget build(BuildContext context) {
@@ -36,7 +38,7 @@ class BarMenu extends StatelessWidget {
           Container(
             height: 97,
             width: 107,
-            margin: EdgeInsets.only(left: 11, bottom: 12, top: 9),
+            margin: const EdgeInsets.only(left: 11, bottom: 12, top: 9),
             decoration: BoxDecoration(
                 image: DecorationImage(
                   image: imageData,
@@ -49,13 +51,13 @@ class BarMenu extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Container(
-                  padding: EdgeInsets.only(left: 17, top: 12, bottom: 5),
+                  padding: const EdgeInsets.only(left: 17, top: 12, bottom: 5),
                   child: Text(
                     namaItem,
                     style: MyTypography.Reguler.copyWith(color: Colors.black),
                   )),
               Container(
-                padding: EdgeInsets.only(left: 17),
+                padding: const EdgeInsets.only(left: 17),
                 child: Text(
                   penjelasanItem,
                   textAlign: TextAlign.left,
@@ -64,23 +66,30 @@ class BarMenu extends StatelessWidget {
                 ),
               ),
               Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  Container(
-                    padding: EdgeInsets.only(top: 5, left: 17),
-                    child: Text(
-                      'Rp 14.000',
+                  const SizedBox(
+                    width: 17,
+                  ),
+                  Text(harga,
                       style: MyTypography.LargeBoldItalic.copyWith(
-                          color: Colors.black),
+                          color: Colors.black)),
+                  Padding(
+                    padding: const EdgeInsets.only(left: 10),
+                    child: IconButton(
+                      onPressed: () {},
+                      icon: const FaIcon(FontAwesomeIcons.circleMinus),
+                      iconSize: 20,
                     ),
                   ),
+                  Text('1',
+                      style: MyTypography.LargeBold2.copyWith(
+                          color: Colors.black)),
                   IconButton(
-                    onPressed: () {
-                      print('Hallo');
-                    },
-                    icon: FaIcon(FontAwesomeIcons.plus),
-                    iconSize: 10,
-                  )
+                    onPressed: () {},
+                    icon: const FaIcon(FontAwesomeIcons.circlePlus),
+                    iconSize: 20,
+                    color: Colors.black,
+                  ),
                 ],
               )
             ],

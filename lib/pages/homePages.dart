@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tugas_pab/Material/Widget/barMenu.dart';
+import 'package:tugas_pab/Material/Widget/customButton.dart';
 import 'package:tugas_pab/Material/color/my_Colors.dart';
 import 'package:tugas_pab/Material/typografi/my_Typography.dart';
 
@@ -27,7 +28,7 @@ class _HomePagesState extends State<HomePages> {
             style: MyTypography.LargeBold.copyWith(
                 color: MyColors.kuning,
                 shadows: <Shadow>[
-                  Shadow(
+                  const Shadow(
                       offset: Offset(1, 1), blurRadius: 5, color: Colors.grey)
                 ])),
         centerTitle: false,
@@ -37,27 +38,39 @@ class _HomePagesState extends State<HomePages> {
         height: double.infinity,
         width: double.infinity,
         child: Column(
+          // ignore: prefer_const_literals_to_create_immutables
           children: [
-            BarMenu(
+            const BarMenu(
               imageData: AssetImage('assets/images/nasiPecel.jpg'),
               namaItem: 'Nasi Pecel',
               penjelasanItem: pNasiPecel,
+              harga: '14.000',
             ),
-            BarMenu(
+            const BarMenu(
               imageData: AssetImage('assets/images/nasiRawon.jpg'),
               namaItem: 'Nasi Rawon',
               penjelasanItem: pNasiRawon,
+              harga: '17.000',
             ),
-            BarMenu(
+            const BarMenu(
               imageData: AssetImage('assets/images/nasiBali.jpg'),
               namaItem: 'Nasi Bali',
               penjelasanItem: pNasiBali,
+              harga: '12.000',
             ),
-            BarMenu(
+            const BarMenu(
               imageData: AssetImage('assets/images/esTeh.jpg'),
               namaItem: 'Es Teh',
               penjelasanItem: pEsTeh,
-            )
+              harga: '3.000',
+            ),
+            CustomButton(
+                txtButton: Text('Add to Order',
+                    style:
+                        MyTypography.LargeBold2.copyWith(color: Colors.white)),
+                onTap: () {
+                  print('Hadir');
+                })
           ],
         ),
       ),
