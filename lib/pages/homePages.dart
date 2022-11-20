@@ -3,6 +3,7 @@ import 'package:tugas_pab/Material/Widget/barMenu.dart';
 import 'package:tugas_pab/Material/Widget/customButton.dart';
 import 'package:tugas_pab/Material/color/my_Colors.dart';
 import 'package:tugas_pab/Material/typografi/my_Typography.dart';
+import 'package:tugas_pab/pages/transactionPages.dart';
 
 class HomePages extends StatefulWidget {
   const HomePages({super.key});
@@ -69,7 +70,11 @@ class _HomePagesState extends State<HomePages> {
                     style:
                         MyTypography.LargeBold2.copyWith(color: Colors.white)),
                 onTap: () {
-                  print('Hadir');
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (BuildContext context) =>
+                              TransactionPage()));
                 })
           ],
         ),

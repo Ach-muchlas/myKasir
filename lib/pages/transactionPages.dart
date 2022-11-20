@@ -1,7 +1,10 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:tugas_pab/Material/Widget/customButton.dart';
 import 'package:tugas_pab/Material/color/my_Colors.dart';
 import 'package:tugas_pab/Material/typografi/my_Typography.dart';
+import 'package:tugas_pab/pages/homePages.dart';
 
 class TransactionPage extends StatefulWidget {
   const TransactionPage({super.key});
@@ -19,7 +22,9 @@ class _TransactionPageState extends State<TransactionPage> {
           elevation: 0.0,
           centerTitle: true,
           leading: IconButton(
-            onPressed: () {},
+            onPressed: () {
+              Navigator.pop(context);
+            },
             icon: const Icon(Icons.arrow_back),
             color: Colors.black,
             iconSize: 40.0,
@@ -225,7 +230,37 @@ class _TransactionPageState extends State<TransactionPage> {
                   'Cetak',
                   style: MyTypography.LargeBold2.copyWith(color: Colors.black),
                 ),
-                onTap: () {}),
+                onTap: () {
+                  return showDialog(
+                      context: context,
+                      builder: (BuildContext context) {
+                        return AlertDialog(
+                          content: Text('Succes',
+                              style: MyTypography.Reguler2.copyWith(
+                                  color: Colors.black,
+                                  fontWeight: FontWeight.bold)),
+                          contentPadding: EdgeInsets.only(top: 50, left: 110),
+                          actions: [
+                            ElevatedButton(
+                                style: ElevatedButton.styleFrom(
+                                  primary: Colors.white,
+                                  elevation: 1.0,
+                                ),
+                                onPressed: () {
+                                  Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (BuildContext context) =>
+                                              HomePages()));
+                                },
+                                child: Text(
+                                  'Ok',
+                                  style: TextStyle(color: Colors.black),
+                                ))
+                          ],
+                        );
+                      });
+                }),
           ),
         ));
   }

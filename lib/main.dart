@@ -6,6 +6,6 @@ void main() {
   runApp(const MaterialApp(
     title: 'Kasir_Resto',
     debugShowCheckedModeBanner: false,
-    home: TransactionPage(),
+    home: TransactionPage(),    
   ));
 }
