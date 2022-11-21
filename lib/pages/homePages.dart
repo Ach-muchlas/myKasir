@@ -13,6 +13,68 @@ class HomePages extends StatefulWidget {
 }
 
 class _HomePagesState extends State<HomePages> {
+  int _valueNasiPecel = 0;
+  int _valueNasiRawon = 0;
+  int _valueNasiBali = 0;
+  int _valueEsTeh = 0;
+
+  void _incrementNasiPecel() {
+    setState(() {
+      _valueNasiPecel++;
+    });
+  }
+
+  void _incrementNasiRawon() {
+    setState(() {
+      _valueNasiRawon++;
+    });
+  }
+
+  void _incrementNasiBali() {
+    setState(() {
+      _valueNasiBali++;
+    });
+  }
+
+  void _incrementEsTeh() {
+    setState(() {
+      _valueEsTeh++;
+    });
+  }
+
+  void _decrementNasiPecel() {
+    setState(() {
+      _valueNasiPecel--;
+      if (_valueNasiPecel < 0) {
+        _valueNasiPecel = 0;
+      }
+    });
+  }
+  void _decrementNasiRawon() {
+    setState(() {
+      _valueNasiRawon--;
+      if (_valueNasiRawon < 0) {
+        _valueNasiRawon = 0;
+      }
+    });
+  }
+  void _decrementNasiBali() {
+    setState(() {
+      _valueNasiBali--;
+      if (_valueNasiBali < 0) {
+        _valueNasiBali = 0;
+      }
+    });
+  }
+  void _decrementEsTeh() {
+    setState(() {
+      _valueEsTeh--;
+      if (_valueEsTeh < 0) {
+        _valueEsTeh = 0;
+      }
+    });
+  }
+  
   @override
   Widget build(BuildContext context) {
     //penjelasan dari item
@@ -39,31 +101,42 @@ class _HomePagesState extends State<HomePages> {
         height: double.infinity,
         width: double.infinity,
         child: Column(
-          // ignore: prefer_const_literals_to_create_immutables
           children: [
-            const BarMenu(
-              imageData: AssetImage('assets/images/nasiPecel.jpg'),
+            BarMenu(
+              imageData: const AssetImage('assets/images/nasiPecel.jpg'),
               namaItem: 'Nasi Pecel',
               penjelasanItem: pNasiPecel,
               harga: '14.000',
-            ),
-            const BarMenu(
-              imageData: AssetImage('assets/images/nasiRawon.jpg'),
+              myvalue: Text('$_valueNasiPecel'),
+              onTapPlus: _incrementNasiPecel,
+              onTapMin: _decrementNasiPecel,
+            ),            
+            BarMenu(
+              imageData: const AssetImage('assets/images/nasiRawon.jpg'),
               namaItem: 'Nasi Rawon',
               penjelasanItem: pNasiRawon,
               harga: '17.000',
+              myvalue: Text('$_valueNasiRawon'),
+              onTapPlus: _incrementNasiRawon,
+              onTapMin: _decrementNasiRawon,
             ),
-            const BarMenu(
+            BarMenu(
               imageData: AssetImage('assets/images/nasiBali.jpg'),
               namaItem: 'Nasi Bali',
               penjelasanItem: pNasiBali,
               harga: '12.000',
+              myvalue: Text('$_valueNasiBali'),
+              onTapPlus: _incrementNasiBali,
+              onTapMin: _decrementNasiBali,
             ),
-            const BarMenu(
+            BarMenu(
               imageData: AssetImage('assets/images/esTeh.jpg'),
               namaItem: 'Es Teh',
               penjelasanItem: pEsTeh,
               harga: '3.000',
+              myvalue: Text('$_valueEsTeh'),
+              onTapPlus: _incrementEsTeh,
+              onTapMin: _decrementEsTeh,
             ),
             CustomButton(
                 txtButton: Text('Add to Order',

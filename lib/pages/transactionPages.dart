@@ -171,7 +171,7 @@ class _TransactionPageState extends State<TransactionPage> {
                               color: Colors.black),
                         ),
                         Text(
-                          '72.000',
+                          '62.000',
                           style: MyTypography.Reguler2.copyWith(
                               color: Colors.black),
                         )
@@ -253,9 +253,10 @@ class _TransactionPageState extends State<TransactionPage> {
                                           builder: (BuildContext context) =>
                                               HomePages()));
                                 },
+                                // ignore: prefer_const_constructors
                                 child: Text(
                                   'Ok',
-                                  style: TextStyle(color: Colors.black),
+                                  style: const TextStyle(color: Colors.black),
                                 ))
                           ],
                         );

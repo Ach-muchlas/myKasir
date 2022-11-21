@@ -4,17 +4,24 @@ import 'package:tugas_pab/Material/typografi/my_Typography.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class BarMenu extends StatelessWidget {
-  const BarMenu(
-      {super.key,
-      required this.imageData,
-      required this.namaItem,
-      required this.penjelasanItem,
-      required this.harga});
+  const BarMenu({
+    super.key,
+    required this.imageData,
+    required this.namaItem,
+    required this.penjelasanItem,
+    required this.harga,
+    required this.onTapPlus,
+    required this.onTapMin,
+    required this.myvalue,
+  });
 
   final AssetImage imageData;
   final String namaItem;
   final String penjelasanItem;
   final String harga;
+  final Function() onTapPlus;
+  final Function() onTapMin;
+  final Widget myvalue;
 
   @override
   Widget build(BuildContext context) {
@@ -68,7 +75,7 @@ class BarMenu extends StatelessWidget {
               Row(
                 children: [
                   const SizedBox(
-                    width: 17,
+                    width: 15,
                   ),
                   Text(harga,
                       style: MyTypography.LargeBoldItalic.copyWith(
@@ -76,16 +83,14 @@ class BarMenu extends StatelessWidget {
                   Padding(
                     padding: const EdgeInsets.only(left: 10),
                     child: IconButton(
-                      onPressed: () {},
+                      onPressed: onTapMin,
                       icon: const FaIcon(FontAwesomeIcons.circleMinus),
                       iconSize: 20,
                     ),
                   ),
-                  Text('1',
-                      style: MyTypography.LargeBold2.copyWith(
-                          color: Colors.black)),
+                  myvalue,
                   IconButton(
-                    onPressed: () {},
+                    onPressed: onTapPlus,
                     icon: const FaIcon(FontAwesomeIcons.circlePlus),
                     iconSize: 20,
                     color: Colors.black,
