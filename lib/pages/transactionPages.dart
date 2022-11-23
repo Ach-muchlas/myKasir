@@ -1,5 +1,3 @@
-import 'dart:ui';
-
 import 'package:flutter/material.dart';
 import 'package:tugas_pab/Material/Widget/customButton.dart';
 import 'package:tugas_pab/Material/color/my_Colors.dart';
@@ -7,7 +5,10 @@ import 'package:tugas_pab/Material/typografi/my_Typography.dart';
 import 'package:tugas_pab/pages/homePages.dart';
 
 class TransactionPage extends StatefulWidget {
-  const TransactionPage({super.key});
+
+  const TransactionPage({
+    Key? key,    
+  }) : super(key: key);
 
   @override
   State<TransactionPage> createState() => _TransactionPageState();
@@ -85,7 +86,7 @@ class _TransactionPageState extends State<TransactionPage> {
                           Text('Nasi Pecel',
                               style: MyTypography.LargeBold2.copyWith(
                                   color: Colors.black)),
-                          Text('2',
+                          Text('1 ',
                               style: MyTypography.LargeBold2.copyWith(
                                   color: Colors.black)),
                         ],
@@ -125,7 +126,7 @@ class _TransactionPageState extends State<TransactionPage> {
                             style: MyTypography.LargeBold2.copyWith(
                                 color: Colors.black),
                           ),
-                          Text('2',
+                          Text('',
                               style: MyTypography.LargeBold2.copyWith(
                                   color: Colors.black)),
                         ],
@@ -246,7 +247,7 @@ class _TransactionPageState extends State<TransactionPage> {
                                   primary: Colors.white,
                                   elevation: 1.0,
                                 ),
-                                onPressed: () {
+                                onPressed: () {                                  
                                   Navigator.push(
                                       context,
                                       MaterialPageRoute(

@@ -80,7 +80,7 @@ class _HomePagesState extends State<HomePages> {
     //penjelasan dari item
     const String pNasiPecel = 'nasi pecel khas Madiun \ndengan lauk ayam ';
     const String pNasiRawon = 'nasi rawon khas Jawa \nTimur dengan lauk empal';
-    const String pNasiBali = 'nasi bali khas Bali \ndengan lauk telor';
+    const String pNasiBali = 'nasi bali khas  Bali \ndengan lauk telor';
     const String pEsTeh = 'Minuman Khas Indonesia \nyang sudah melegenda';
 
     return Scaffold(
@@ -121,7 +121,7 @@ class _HomePagesState extends State<HomePages> {
               onTapMin: _decrementNasiRawon,
             ),
             BarMenu(
-              imageData: AssetImage('assets/images/nasiBali.jpg'),
+              imageData: const AssetImage('assets/images/nasiBali.jpg'),
               namaItem: 'Nasi Bali',
               penjelasanItem: pNasiBali,
               harga: '12.000',
@@ -130,7 +130,7 @@ class _HomePagesState extends State<HomePages> {
               onTapMin: _decrementNasiBali,
             ),
             BarMenu(
-              imageData: AssetImage('assets/images/esTeh.jpg'),
+              imageData: const AssetImage('assets/images/esTeh.jpg'),
               namaItem: 'Es Teh',
               penjelasanItem: pEsTeh,
               harga: '3.000',
@@ -147,7 +147,7 @@ class _HomePagesState extends State<HomePages> {
                       context,
                       MaterialPageRoute(
                           builder: (BuildContext context) =>
-                              TransactionPage()));
+                              const TransactionPage()));
                 })
           ],
         ),
