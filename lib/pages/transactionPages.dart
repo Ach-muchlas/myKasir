@@ -1,5 +1,3 @@
-import 'dart:ui';
-
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:tugas_pab/Material/Widget/customButton.dart';
@@ -7,8 +5,8 @@ import 'package:tugas_pab/Material/color/my_Colors.dart';
 import 'package:tugas_pab/Material/typografi/my_Typography.dart';
 import 'package:tugas_pab/pages/homePages.dart';
 
-class TransactionPage extends StatefulWidget {
-  const TransactionPage({super.key});
+class TransactionPage extends StatelessWidget {
+  const TransactionPage({super.key, required this.valueNasiPecel, required this.valueNasiRawon, required this.valueNasiBali, required this.valueEsTeh});
 
   final int valueNasiPecel;
   final int valueNasiRawon;
@@ -95,7 +93,7 @@ class TransactionPage extends StatefulWidget {
                           Text('Nasi Pecel',
                               style: MyTypography.LargeBold2.copyWith(
                                   color: Colors.black)),
-                          Text('2',
+                          Text('$valueNasiPecel',
                               style: MyTypography.LargeBold2.copyWith(
                                   color: Colors.black)),
                         ],
@@ -135,7 +133,7 @@ class TransactionPage extends StatefulWidget {
                             style: MyTypography.LargeBold2.copyWith(
                                 color: Colors.black),
                           ),
-                          Text('2',
+                          Text('$valueNasiBali',
                               style: MyTypography.LargeBold2.copyWith(
                                   color: Colors.black)),
                         ],
@@ -264,7 +262,7 @@ class TransactionPage extends StatefulWidget {
                                   elevation: 1.0,
                                 ),
                                 onPressed: () {
-                                  Navigator.push(
+                                  Navigator.pushReplacement(
                                       context,
                                       MaterialPageRoute(
                                           builder: (BuildContext context) =>

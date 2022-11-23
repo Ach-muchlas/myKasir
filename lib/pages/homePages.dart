@@ -146,11 +146,15 @@ class _HomePagesState extends State<HomePages> {
                     style:
                         MyTypography.LargeBold2.copyWith(color: Colors.white)),
                 onTap: () {
-                  Navigator.pushReplacement(
+                  Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (BuildContext context) =>
-                              TransactionPage()));
+                          builder: (BuildContext context) => TransactionPage(
+                                valueNasiPecel: _valueNasiPecel,
+                                valueNasiRawon: _valueNasiRawon,
+                                valueNasiBali: _valueNasiBali,
+                                valueEsTeh: _valueEsTeh,
+                              )));
                 })
           ],
         ),

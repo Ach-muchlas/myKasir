@@ -44,7 +44,7 @@ class BarMenu extends StatelessWidget {
         children: [
           Container(
             height: 97,
-            width: 107,
+            width: 105,
             margin: const EdgeInsets.only(left: 11, bottom: 12, top: 9),
             decoration: BoxDecoration(
                 image: DecorationImage(
