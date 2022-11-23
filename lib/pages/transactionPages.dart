@@ -1,22 +1,31 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'package:tugas_pab/Material/Widget/customButton.dart';
 import 'package:tugas_pab/Material/color/my_Colors.dart';
 import 'package:tugas_pab/Material/typografi/my_Typography.dart';
 import 'package:tugas_pab/pages/homePages.dart';
 
 class TransactionPage extends StatefulWidget {
+  const TransactionPage({super.key});
 
-  const TransactionPage({
-    Key? key,    
-  }) : super(key: key);
+  final int valueNasiPecel;
+  final int valueNasiRawon;
+  final int valueNasiBali;
+  final int valueEsTeh;
 
-  @override
-  State<TransactionPage> createState() => _TransactionPageState();
-}
-
-class _TransactionPageState extends State<TransactionPage> {
   @override
   Widget build(BuildContext context) {
+    int valueSubTotal = (valueNasiPecel * 14000) +
+        (valueNasiRawon * 17000) +
+        (valueNasiBali * 12000) +
+        (valueEsTeh * 3000);
+
+    double valuePPN = valueSubTotal * 0.10;
+
+    int valueTotal = valueSubTotal + valuePPN.toInt();
+
     return Scaffold(
         appBar: AppBar(
           backgroundColor: Colors.white,
@@ -86,7 +95,7 @@ class _TransactionPageState extends State<TransactionPage> {
                           Text('Nasi Pecel',
                               style: MyTypography.LargeBold2.copyWith(
                                   color: Colors.black)),
-                          Text('1 ',
+                          Text('2',
                               style: MyTypography.LargeBold2.copyWith(
                                   color: Colors.black)),
                         ],
@@ -106,7 +115,7 @@ class _TransactionPageState extends State<TransactionPage> {
                             style: MyTypography.LargeBold2.copyWith(
                                 color: Colors.black),
                           ),
-                          Text('1',
+                          Text('$valueNasiRawon',
                               style: MyTypography.LargeBold2.copyWith(
                                   color: Colors.black)),
                         ],
@@ -126,7 +135,7 @@ class _TransactionPageState extends State<TransactionPage> {
                             style: MyTypography.LargeBold2.copyWith(
                                 color: Colors.black),
                           ),
-                          Text('',
+                          Text('2',
                               style: MyTypography.LargeBold2.copyWith(
                                   color: Colors.black)),
                         ],
@@ -146,7 +155,7 @@ class _TransactionPageState extends State<TransactionPage> {
                             style: MyTypography.LargeBold2.copyWith(
                                 color: Colors.black),
                           ),
-                          Text('2',
+                          Text('$valueEsTeh',
                               style: MyTypography.LargeBold2.copyWith(
                                   color: Colors.black)),
                         ],
@@ -172,7 +181,9 @@ class _TransactionPageState extends State<TransactionPage> {
                               color: Colors.black),
                         ),
                         Text(
-                          '62.000',
+                          NumberFormat.currency(
+                                  locale: 'id', symbol: 'Rp', decimalDigits: 0)
+                              .format(valueSubTotal),
                           style: MyTypography.Reguler2.copyWith(
                               color: Colors.black),
                         )
@@ -190,7 +201,9 @@ class _TransactionPageState extends State<TransactionPage> {
                               color: Colors.black),
                         ),
                         Text(
-                          '7.200',
+                          NumberFormat.currency(
+                                  locale: 'id', symbol: 'Rp', decimalDigits: 0)
+                              .format(valuePPN),
                           style: MyTypography.Reguler2.copyWith(
                               color: Colors.black),
                         )
@@ -208,7 +221,9 @@ class _TransactionPageState extends State<TransactionPage> {
                               color: Colors.black),
                         ),
                         Text(
-                          '79.200',
+                          NumberFormat.currency(
+                                  locale: 'id', symbol: 'Rp', decimalDigits: 0)
+                              .format(valueTotal),
                           style: MyTypography.Reguler2.copyWith(
                               color: Colors.black),
                         )
@@ -240,19 +255,20 @@ class _TransactionPageState extends State<TransactionPage> {
                               style: MyTypography.Reguler2.copyWith(
                                   color: Colors.black,
                                   fontWeight: FontWeight.bold)),
-                          contentPadding: EdgeInsets.only(top: 50, left: 110),
+                          contentPadding:
+                              const EdgeInsets.only(top: 50, left: 110),
                           actions: [
                             ElevatedButton(
                                 style: ElevatedButton.styleFrom(
                                   primary: Colors.white,
                                   elevation: 1.0,
                                 ),
-                                onPressed: () {                                  
+                                onPressed: () {
                                   Navigator.push(
                                       context,
                                       MaterialPageRoute(
                                           builder: (BuildContext context) =>
-                                              HomePages()));
+                                              const HomePages()));
                                 },
                                 // ignore: prefer_const_constructors
                                 child: Text(

@@ -4,7 +4,7 @@ import 'package:tugas_pab/Material/color/my_Colors.dart';
 class CustomButton extends StatelessWidget {
   const CustomButton({super.key, required this.txtButton, required this.onTap});
 
-  final Widget txtButton;
+final Widget txtButton;
   final Function() onTap;
 
   @override

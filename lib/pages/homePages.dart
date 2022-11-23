@@ -50,6 +50,7 @@ class _HomePagesState extends State<HomePages> {
       }
     });
   }
+
   void _decrementNasiRawon() {
     setState(() {
       _valueNasiRawon--;
@@ -58,6 +59,7 @@ class _HomePagesState extends State<HomePages> {
       }
     });
   }
+
   void _decrementNasiBali() {
     setState(() {
       _valueNasiBali--;
@@ -66,6 +68,7 @@ class _HomePagesState extends State<HomePages> {
       }
     });
   }
+
   void _decrementEsTeh() {
     setState(() {
       _valueEsTeh--;
@@ -74,7 +77,7 @@ class _HomePagesState extends State<HomePages> {
       }
     });
   }
-  
+
   @override
   Widget build(BuildContext context) {
     //penjelasan dari item
@@ -110,7 +113,7 @@ class _HomePagesState extends State<HomePages> {
               myvalue: Text('$_valueNasiPecel'),
               onTapPlus: _incrementNasiPecel,
               onTapMin: _decrementNasiPecel,
-            ),            
+            ),
             BarMenu(
               imageData: const AssetImage('assets/images/nasiRawon.jpg'),
               namaItem: 'Nasi Rawon',
@@ -143,11 +146,11 @@ class _HomePagesState extends State<HomePages> {
                     style:
                         MyTypography.LargeBold2.copyWith(color: Colors.white)),
                 onTap: () {
-                  Navigator.push(
+                  Navigator.pushReplacement(
                       context,
                       MaterialPageRoute(
                           builder: (BuildContext context) =>
-                              const TransactionPage()));
+                              TransactionPage()));
                 })
           ],
         ),
